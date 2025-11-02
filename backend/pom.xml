@@ -14,7 +14,7 @@
 
     <groupId>com.springai</groupId>
     <artifactId>b2b-platform</artifactId>
-    <version>1.0.0</version>
+    <version>2025.0</version>
     <name>SpringAI B2B Platform</name>
     <description>Spring AI powered B2B Transaction Platform with PostgreSQL pgvector</description>
 
