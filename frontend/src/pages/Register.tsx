@@ -56,7 +56,7 @@ export function Register() {
           <div className="flex justify-center mb-8">
             <img
               src={theme === 'dark' ? '/logos/justransform-logo_w.svg' : '/logos/justransform-logo.svg'}
-              alt="JusTransform SAIL"
+              alt="Justransform SAIL"
               className="h-20 w-auto"
             />
           </div>

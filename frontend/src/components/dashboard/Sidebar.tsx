@@ -26,7 +26,7 @@ export function Sidebar({ user, onCreateTransaction }: SidebarProps) {
       <div className="p-6 border-b border-gray-200 dark:border-sail-dark-lighter">
         <img
           src={theme === 'dark' ? '/logos/justransform-logo_w.svg' : '/logos/justransform-logo.svg'}
-          alt="JusTransform SAIL"
+          alt="Justransform SAIL"
           className="h-12 w-auto"
         />
       </div>
