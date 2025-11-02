@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: rgb(249 250 251);
+  }
+
+  html.dark {
+    background-color: #1a1a1a;
+  }
+
+  body {
+    font-family: Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: rgb(249 250 251);
+    color: rgb(17 24 39);
+  }
+
+  body.dark,
+  html.dark body {
+    background-color: #1a1a1a;
+    color: rgb(243 244 246);
+  }
+}

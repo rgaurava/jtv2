@@ -1,0 +1,17 @@
+-- Enable pgvector extension
+CREATE EXTENSION IF NOT EXISTS vector;
+
+-- Create vector store table for Spring AI
+CREATE TABLE IF NOT EXISTS vector_store (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    content TEXT,
+    metadata JSON,
+    embedding vector(1536)
+);
+
+-- Create index for faster similarity search
+CREATE INDEX IF NOT EXISTS vector_store_embedding_idx ON vector_store
+USING hnsw (embedding vector_cosine_ops);
+
+-- Grant permissions
+GRANT ALL PRIVILEGES ON TABLE vector_store TO postgres;
