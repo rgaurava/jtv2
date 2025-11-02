@@ -82,6 +82,50 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Apache Groovy -->
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy-json</artifactId>
+            <version>5.0.0</version>
+        </dependency>
+
+        <!-- IPWorks Libraries -->
+        <dependency>
+            <groupId>ipworks</groupId>
+            <artifactId>ipworks</artifactId>
+            <version>2025</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ipworks</groupId>
+            <artifactId>ipworksedi</artifactId>
+            <version>2025</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ipworks</groupId>
+            <artifactId>ipworksopenpgp</artifactId>
+            <version>2025</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ipworks</groupId>
+            <artifactId>ipworksssh</artifactId>
+            <version>2025</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ipworks</groupId>
+            <artifactId>ipworksencrypt</artifactId>
+            <version>2025</version>
+        </dependency>
+
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
