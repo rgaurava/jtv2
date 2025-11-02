@@ -1,28 +1,48 @@
-# SpringAI B2B Transaction Platform
+# SAIL Platform
 
-A modern B2B transaction management platform built with Spring Boot 3, Spring AI, PostgreSQL with pgvector, and React with TypeScript and Tailwind CSS.
+> **Spring AI Integration Layer** - AI-Powered B2B Transaction Management for Justransform
+
+[![Java](https://img.shields.io/badge/Java-24-orange.svg)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.1-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Spring AI](https://img.shields.io/badge/Spring%20AI-1.0.3-blue.svg)](https://spring.io/projects/spring-ai)
+[![React](https://img.shields.io/badge/React-19-61dafb.svg)](https://reactjs.org/)
+
+A modern B2B transaction management platform built with Spring Boot 3.4.1, Spring AI 1.0.3, PostgreSQL with pgvector, and React 19 with TypeScript and TailwindCSS. **Version 2025.0**
 
 ## Features
 
 ### Backend
-- **Spring Boot 3** with Java 21
-- **Spring AI** integration with OpenAI for AI-powered transaction insights
+- **Spring Boot 3.4.1** with **Java 24** (latest stable releases)
+- **Spring AI 1.0.3** integration with OpenAI for AI-powered transaction insights
 - **PostgreSQL** database with **pgvector** extension for vector similarity search
 - **Spring Security** with JWT authentication
+- **Apache Groovy 5.0.0** for dynamic scripting and transformations
+- **IPWorks 2025** suite for B2B integrations (EDI, SFTP, encryption)
 - RESTful API architecture
-- Password reset functionality
-- Comprehensive transaction management
+- Comprehensive transaction management with AI insights
 
 ### Frontend
-- **React 18** with **TypeScript**
-- **Tailwind CSS** for modern, responsive UI
+- **React 19** with **TypeScript**
+- **Vite 6** for blazing-fast builds
+- **TailwindCSS** with custom SAIL theme (Justransform branding)
+- **Compact UI design** for maximum screen real estate
 - **Dark/Light theme** toggle with persistent preference
 - Comprehensive authentication flows (Login, Register, Forgot Password)
 - 3-panel admin dashboard:
-  - **Left Panel**: Navigation sidebar with user info
+  - **Left Panel**: Compact navigation sidebar (w-52) with user info
   - **Center Panel**: Transaction list with search and statistics
-  - **Right Panel**: Detailed transaction view with AI insights
+  - **Right Panel**: Detailed transaction view (w-72) with AI insights
 - Static pages (Privacy Policy, Terms & Conditions, Security)
+
+## Documentation
+
+| Document | Purpose |
+|----------|---------|
+| **[PROJECT.md](PROJECT.md)** | Complete project documentation, architecture, and knowledge base |
+| **[CLAUDE_CONTEXT.md](CLAUDE_CONTEXT.md)** | Quick context for AI-assisted development and conversation continuity |
+| **[RESTORE.md](RESTORE.md)** | Disaster recovery guide and environment restoration procedures |
+| **[CHANGELOG.md](CHANGELOG.md)** | Version history and detailed change log |
+| **README.md** | This file - Quick start guide and overview |
 
 ## Architecture
 
@@ -52,10 +72,10 @@ springai-b2b-platform/
 
 ## Prerequisites
 
-- **Java 21** or higher
+- **Java 24** (required)
 - **Maven 3.8+**
 - **Node.js 18+** and npm
-- **Docker** and Docker Compose (for PostgreSQL)
+- **PostgreSQL 14+** with pgvector extension
 - **OpenAI API Key** (for AI features)
 
 ## Getting Started
@@ -190,19 +210,21 @@ The first user you register will automatically become an admin. Use the registra
 ## Technology Stack
 
 ### Backend
-- Spring Boot 3.2.1
-- Spring AI 1.0.0-M4
+- Java 24
+- Spring Boot 3.4.1
+- Spring AI 1.0.3 (stable)
 - Spring Security with JWT
-- PostgreSQL 16
-- pgvector for vector embeddings
-- Lombok
+- PostgreSQL with pgvector extension
+- Lombok 1.18.40
+- Apache Groovy 5.0.0
+- IPWorks 2025 (EDI, SSH/SFTP, OpenPGP, Encryption)
 - Maven
 
 ### Frontend
-- React 18
+- React 19
 - TypeScript
-- Vite
-- Tailwind CSS
+- Vite 6
+- TailwindCSS (SAIL theme)
 - React Router v6
 - Axios
 - Lucide React (icons)
@@ -281,27 +303,46 @@ npm run build
 ### Frontend
 - `VITE_API_URL` - Backend API URL
 
+## Database Backup
+
+Use the included backup script to automatically backup your database and configuration files:
+
+```bash
+./backup.sh
+```
+
+Backups are stored in `~/backups/sail_platform/` and automatically cleaned after 7 days.
+
+For detailed disaster recovery procedures, see **[RESTORE.md](RESTORE.md)**.
+
 ## Troubleshooting
 
 ### Backend won't start
-- Ensure PostgreSQL is running: `docker-compose ps`
-- Check Java version: `java -version` (should be 21+)
-- Verify database connection in application.yml
+- Check Java version: `java -version` (must be 24)
+- Ensure PostgreSQL is running: `pg_isready`
+- Verify database connection in `application-local.properties`
+- Check Lombok annotation processor configuration in `pom.xml`
 
 ### Frontend won't connect to backend
 - Check backend is running on port 8080
-- Verify VITE_API_URL in .env file
+- Verify VITE_API_URL in `.env.local` file
 - Check browser console for CORS errors
 
 ### AI features not working
-- Ensure OPENAI_API_KEY is set correctly
+- Ensure `spring.ai.openai.api-key` is set in `application-local.properties`
 - Check OpenAI API quota and credits
 - Review backend logs for AI-related errors
 
 ### Database connection issues
-- Restart PostgreSQL: `docker-compose restart`
-- Check database logs: `docker-compose logs postgres`
-- Verify port 5432 is not in use
+- Check PostgreSQL status: `pg_isready`
+- Verify port 5432 is not in use: `lsof -i :5432`
+- Ensure pgvector extension is installed
+
+### Lombok not generating code (Java 24)
+- Verify explicit annotation processor configuration exists in `pom.xml`
+- See **[PROJECT.md](PROJECT.md)** for required Maven compiler plugin configuration
+
+For comprehensive troubleshooting, see **[PROJECT.md](PROJECT.md)**.
 
 ## Contributing
 
@@ -317,11 +358,21 @@ This project is licensed under the MIT License.
 
 ## Support
 
-For issues and questions, please open an issue on the GitHub repository.
+For issues and questions:
+1. Check **[PROJECT.md](PROJECT.md)** for comprehensive documentation
+2. Review **[RESTORE.md](RESTORE.md)** for environment issues
+3. See **[CHANGELOG.md](CHANGELOG.md)** for recent changes
+4. Open an issue on the GitHub repository
+
+## AI-Assisted Development
+
+This project includes **[CLAUDE_CONTEXT.md](CLAUDE_CONTEXT.md)** for conversation continuity with AI coding assistants. When starting a new session, read this file first to quickly understand the project context, recent changes, and important architectural decisions.
 
 ## Acknowledgments
 
 - Spring AI team for the excellent AI integration framework
 - PostgreSQL pgvector extension for vector similarity search
-- Tailwind CSS for the utility-first CSS framework
+- /n/software for IPWorks B2B integration suite
+- TailwindCSS for the utility-first CSS framework
 - React and Vite teams for the amazing development experience
+- Claude Code for AI-assisted development
