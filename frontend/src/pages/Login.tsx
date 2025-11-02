@@ -33,24 +33,24 @@ export function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-sail-dark py-12 px-4 sm:px-6 lg:px-8">
-      <div className="absolute top-4 right-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-sail-dark py-6 px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-3 right-3">
         <ThemeToggle />
       </div>
 
-      <div className="max-w-md w-full space-y-8">
+      <div className="max-w-md w-full space-y-4">
         <div>
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <img
               src={theme === 'dark' ? '/logos/justransform-logo_w.svg' : '/logos/justransform-logo.svg'}
               alt="Justransform SAIL"
-              className="h-20 w-auto"
+              className="h-12 w-auto"
             />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+          <h2 className="mt-3 text-center text-xl font-extrabold text-gray-900 dark:text-white">
             Sign in to SAIL
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-sail-text">
+          <p className="mt-1.5 text-center text-xs text-gray-600 dark:text-sail-text">
             Or{' '}
             <Link
               to="/register"
@@ -61,14 +61,14 @@ export function Login() {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
           {error && (
-            <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4">
-              <p className="text-sm text-red-800 dark:text-red-400">{error}</p>
+            <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-2">
+              <p className="text-xs text-red-800 dark:text-red-400">{error}</p>
             </div>
           )}
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             <Input
               label="Username"
               type="text"
@@ -93,7 +93,7 @@ export function Login() {
           </div>
 
           <div className="flex items-center justify-between">
-            <div className="text-sm">
+            <div className="text-xs">
               <Link
                 to="/forgot-password"
                 className="font-medium text-sail-cyan hover:text-sail-purple"
@@ -103,38 +103,38 @@ export function Login() {
             </div>
           </div>
 
-          <Button type="submit" className="w-full rounded-full" isLoading={isLoading}>
+          <Button type="submit" className="w-full rounded-full text-sm py-2" isLoading={isLoading}>
             Sign in
           </Button>
 
-          <div className="mt-6">
+          <div className="mt-3">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300 dark:border-sail-dark-lighter"></div>
               </div>
-              <div className="relative flex justify-center text-sm">
+              <div className="relative flex justify-center text-xs">
                 <span className="px-2 bg-gray-50 dark:bg-sail-dark text-gray-500 dark:text-sail-text">
                   Quick Links
                 </span>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-3 gap-3 text-center">
+            <div className="mt-3 grid grid-cols-3 gap-2 text-center">
               <Link
                 to="/privacy"
-                className="text-xs text-gray-500 dark:text-sail-text hover:text-sail-cyan"
+                className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms"
-                className="text-xs text-gray-500 dark:text-sail-text hover:text-sail-cyan"
+                className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
               >
                 Terms & Conditions
               </Link>
               <Link
                 to="/security"
-                className="text-xs text-gray-500 dark:text-sail-text hover:text-sail-cyan"
+                className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
               >
                 Security
               </Link>

@@ -46,24 +46,24 @@ export function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-sail-dark py-12 px-4 sm:px-6 lg:px-8">
-      <div className="absolute top-4 right-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-sail-dark py-6 px-4 sm:px-6 lg:px-8">
+      <div className="absolute top-3 right-3">
         <ThemeToggle />
       </div>
 
-      <div className="max-w-2xl w-full space-y-8">
+      <div className="max-w-2xl w-full space-y-4">
         <div>
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <img
               src={theme === 'dark' ? '/logos/justransform-logo_w.svg' : '/logos/justransform-logo.svg'}
               alt="Justransform SAIL"
-              className="h-20 w-auto"
+              className="h-12 w-auto"
             />
           </div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900 dark:text-white">
+          <h2 className="mt-3 text-center text-xl font-extrabold text-gray-900 dark:text-white">
             Create your SAIL account
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600 dark:text-sail-text">
+          <p className="mt-1.5 text-center text-xs text-gray-600 dark:text-sail-text">
             Already have an account?{' '}
             <Link
               to="/login"
@@ -74,14 +74,14 @@ export function Register() {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-4 space-y-3" onSubmit={handleSubmit}>
           {error && (
-            <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-4">
-              <p className="text-sm text-red-800 dark:text-red-400">{error}</p>
+            <div className="rounded-md bg-red-50 dark:bg-red-900/20 p-2">
+              <p className="text-xs text-red-800 dark:text-red-400">{error}</p>
             </div>
           )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Input
               label="First Name"
               type="text"
@@ -169,26 +169,26 @@ export function Register() {
             />
           </div>
 
-          <Button type="submit" className="w-full" isLoading={isLoading}>
+          <Button type="submit" className="w-full rounded-full text-sm py-2" isLoading={isLoading}>
             Create Account
           </Button>
 
-          <div className="mt-6 grid grid-cols-3 gap-3 text-center">
+          <div className="mt-3 grid grid-cols-3 gap-2 text-center">
             <Link
               to="/privacy"
-              className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
+              className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
             >
               Privacy Policy
             </Link>
             <Link
               to="/terms"
-              className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
+              className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
             >
               Terms & Conditions
             </Link>
             <Link
               to="/security"
-              className="text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400"
+              className="text-[10px] text-gray-500 dark:text-sail-text hover:text-sail-cyan"
             >
               Security
             </Link>
