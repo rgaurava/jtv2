@@ -20,23 +20,23 @@ export function TransactionCard({ transaction, isSelected, onClick }: Transactio
   return (
     <div
       onClick={onClick}
-      className={`p-4 rounded-xl border cursor-pointer transition-all ${
+      className={`p-2 rounded-lg border cursor-pointer transition-all ${
         isSelected
-          ? 'border-sail-cyan bg-sail-cyan/5 dark:bg-sail-cyan/10 shadow-lg ring-2 ring-sail-cyan/50'
-          : 'border-gray-200 dark:border-sail-dark-lighter bg-white dark:bg-sail-charcoal hover:border-sail-cyan/50 dark:hover:border-sail-cyan/50 hover:shadow-md'
+          ? 'border-sail-cyan bg-sail-cyan/5 dark:bg-sail-cyan/10 shadow-md ring-1 ring-sail-cyan/50'
+          : 'border-gray-200 dark:border-sail-dark-lighter bg-white dark:bg-sail-charcoal hover:border-sail-cyan/50 dark:hover:border-sail-cyan/50 hover:shadow-sm'
       }`}
     >
-      <div className="flex items-start justify-between mb-2">
-        <div>
-          <p className="text-sm font-mono text-gray-500 dark:text-sail-text">
+      <div className="flex items-start justify-between mb-1">
+        <div className="flex-1 min-w-0">
+          <p className="text-[10px] font-mono text-gray-500 dark:text-sail-text">
             #{transaction.transactionId.substring(0, 8)}
           </p>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mt-1">
+          <h3 className="text-sm font-semibold text-gray-900 dark:text-white truncate">
             {transaction.productName}
           </h3>
         </div>
         <span
-          className={`px-3 py-1 rounded-full text-xs font-medium ${
+          className={`px-2 py-0.5 rounded-full text-[10px] font-medium ml-2 flex-shrink-0 ${
             statusColors[transaction.status]
           }`}
         >
@@ -44,30 +44,32 @@ export function TransactionCard({ transaction, isSelected, onClick }: Transactio
         </span>
       </div>
 
-      <div className="space-y-2 mt-3">
-        <div className="flex items-center text-sm text-gray-600 dark:text-sail-text">
-          <Building2 className="w-4 h-4 mr-2" />
-          <span>{transaction.buyerCompany} ← {transaction.sellerCompany}</span>
+      <div className="space-y-1 mt-1">
+        <div className="flex items-center text-xs text-gray-600 dark:text-sail-text">
+          <Building2 className="w-3 h-3 mr-1 flex-shrink-0" />
+          <span className="truncate">{transaction.buyerCompany} ← {transaction.sellerCompany}</span>
         </div>
 
-        <div className="flex items-center text-sm text-gray-600 dark:text-sail-text">
-          <Package className="w-4 h-4 mr-2" />
-          <span>Qty: {transaction.quantity}</span>
-        </div>
-
-        {transaction.deliveryDate && (
-          <div className="flex items-center text-sm text-gray-600 dark:text-sail-text">
-            <Calendar className="w-4 h-4 mr-2" />
-            <span>{new Date(transaction.deliveryDate).toLocaleDateString()}</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center text-xs text-gray-600 dark:text-sail-text">
+            <Package className="w-3 h-3 mr-1" />
+            <span>Qty: {transaction.quantity}</span>
           </div>
-        )}
+
+          {transaction.deliveryDate && (
+            <div className="flex items-center text-xs text-gray-600 dark:text-sail-text">
+              <Calendar className="w-3 h-3 mr-1" />
+              <span>{new Date(transaction.deliveryDate).toLocaleDateString()}</span>
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="mt-3 pt-3 border-t border-gray-200 dark:border-sail-dark-lighter flex items-center justify-between">
-        <span className="text-sm text-gray-500 dark:text-sail-text">
+      <div className="mt-1.5 pt-1.5 border-t border-gray-200 dark:border-sail-dark-lighter flex items-center justify-between">
+        <span className="text-[10px] text-gray-500 dark:text-sail-text">
           {new Date(transaction.createdAt).toLocaleDateString()}
         </span>
-        <span className="text-lg font-bold text-sail-green">
+        <span className="text-sm font-bold text-sail-green">
           {transaction.currency} {transaction.totalAmount.toLocaleString()}
         </span>
       </div>
